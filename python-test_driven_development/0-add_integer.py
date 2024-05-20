@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-""" Function that add to integer"""
+""" Function that add two integer
+b is set by default to 98
+we need to have an int or a float for a and b otherwise we raise an error
+return the sum of a and b after casting them as an int
+"""
 
 
 def add_integer(a, b=98):
-    """ add two integer who firsted get casted into integer
-        Args:
-            a (int, float): first integer to be added
-            b (int, float): second integer to be added
-        Returns:
-            int: the sum of a and b.
-        Raises:
-            TypeError: if a or b isn't an integer
-    """
+    """Args: a and b as an int or float
+        Returns: sum of a and b as an integer
+        Raises: TypeError: if a or b isn't an integer"""
     if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
     if not isinstance(b, (int, float)):

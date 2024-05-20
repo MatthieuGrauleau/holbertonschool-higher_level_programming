@@ -1,0 +1,31 @@
+doctest for 0-add_integer.py
+============================
+This function add two add_integer
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test for success
+================
+>>> add_integer(1,2)
+3
+
+>>> add_integer (50, -8)
+42
+
+>>> add_integer(-2, 20)
+18
+
+>>> add_integer(1.5, 1.5)
+2
+
+==================
+Test for fail
+==================
+
+>>> add_integer(2, "baguette")
+Traceback (most recent call last):
+TypeError: b must be an integer
+
+>>> add_integer("fromage", 2)
+Traceback (most recent call last):
+TypeError: a must be an integer
