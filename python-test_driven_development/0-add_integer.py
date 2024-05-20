@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ Function that add to integer"""
+
+
 def add_integer(a, b=98):
     """ add two integer who firsted get casted into integer
         Args:
