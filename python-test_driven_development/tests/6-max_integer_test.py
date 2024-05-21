@@ -35,3 +35,6 @@ class TestMaxInteger(unittest.TestCase):
     
     def test_same(self):
         self.assertEqual(max_integer([1, 1, 1, 1]), 1)
+    
+    def test_uniq_element(self):
+        self.assertEqual(max_integer([2]), 2)
