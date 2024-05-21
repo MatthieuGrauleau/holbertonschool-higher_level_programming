@@ -1,0 +1,8 @@
+doctest for 2-matrix_divided.py
+============================
+This function add two add_integer
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Test for success
+================
