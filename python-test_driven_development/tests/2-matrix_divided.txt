@@ -47,3 +47,7 @@ TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' an
 >>> matrix_divided([None], 4)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided([[1,2,3]], 2,5)
+Traceback (most recent call last):
+TypeError: matrix_divided() takes 2 positional arguments but 3 were given
