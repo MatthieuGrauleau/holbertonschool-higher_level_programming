@@ -20,3 +20,7 @@ class TestMaxInteger(unittest.TestCase):
     
     def test_negative_and_positive(self):
         self.assertEqual(max_integer([-1, 2, -3, 4]), 4)
+    
+
+    def test_empty_list(self):
+        self.assertEqual(max_integer([]), None)
