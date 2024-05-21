@@ -10,6 +10,19 @@ Test for success
 >>> text_indentation("Nonuni")
 Nonuni
 
+>>> text_indentation("Test: hey?...nice")
+Test:
+<BLANKLINE>
+hey?
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+.
+<BLANKLINE>
+nice
+
 ================
 Test for fail
 ================
