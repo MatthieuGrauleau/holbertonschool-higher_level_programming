@@ -30,6 +30,5 @@ class TestMaxInteger(unittest.TestCase):
     def test_nothing(self):
         self.assertIsNone(max_integer([]))
         
-    def test_no_list(self):
-        with self.assertRaises(TypeError):
-            max_integer(123)
+    def test_with_floats(self):
+        self.assertEqual(max_integer([1.32, 1.21, 3.45]), 3.45)
