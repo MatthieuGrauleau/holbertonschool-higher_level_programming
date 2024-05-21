@@ -54,3 +54,7 @@ TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided([[1,2,3]], 2,5)
 Traceback (most recent call last):
 TypeError: matrix_divided() takes 2 positional arguments but 3 were given
+
+>>> matrix_divided({1,2,3}, 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
