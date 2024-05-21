@@ -58,3 +58,7 @@ TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
 >>> add_integer(1, None)
 Traceback (most recent call last):
 TypeError: b must be an integer
+
+>>> add_integer(3, [1, 2])
+Traceback (most recent call last):
+TypeError: b must be an integer
