@@ -29,3 +29,7 @@ class TestMaxInteger(unittest.TestCase):
     
     def test_nothing(self):
         self.assertIsNone(max_integer([]))
+        
+    def test_list_no_integer(self):
+        with self.assertRaises(TypeError):
+            max_integer([1, "two", 3])
