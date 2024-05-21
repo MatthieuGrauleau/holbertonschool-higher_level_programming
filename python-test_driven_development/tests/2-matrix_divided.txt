@@ -1,8 +1,35 @@
 doctest for 2-matrix_divided.py
 ============================
-This function add two add_integer
+This function that divides all elements of a matrix.
 
->>> add_integer = __import__('0-add_integer').add_integer
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
 Test for success
 ================
+
+>>> matrix_divided([[1,2,3], [1,2,3]], 2)
+[[0.5, 1.0, 1.5], [0.5, 1.0, 1.5]]
+
+>>> matrix_divided([[1,2,3], ], 2)
+[[0.5, 1.0, 1.5]]
+
+=================
+Test for fail
+=================
+
+>>> matrix_divided([[1,2,3], [1,2,3]])
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matrix_divided([[1,2,3], [1,2,3]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+>>> matrix_divided([[1,2,], [1,2,3]], 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+>>> matrix_divided([[1,2,"baguette"], [1,2,3]], 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
