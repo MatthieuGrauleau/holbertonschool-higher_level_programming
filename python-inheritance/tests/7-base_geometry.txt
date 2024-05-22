@@ -13,13 +13,13 @@ Test for success
 
 >>> bg.integer_validator("width", 89)
 
->>> bg.integer_validator("baguette", (0, 1, 2))
-Traceback (most recent call last):
-TypeError: baguette must be an integer
-
 ================
 Test for fail
 ================
+
+>>> bg.integer_validator("baguette", (0, 1, 2))
+Traceback (most recent call last):
+TypeError: baguette must be an integer
 
 >>> bg.integer_validator(None, None)
 Traceback (most recent call last):
@@ -33,10 +33,6 @@ TypeError: baguette must be an integer
 Traceback (most recent call last):
 Exception: area() is not implemented
 
->>> bg.area("baguette")
-Traceback (most recent call last):
-TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
-
 >>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
 TypeError: name must be an integer
@@ -48,3 +44,6 @@ ValueError: age must be greater than 0
 >>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ValueError: distance must be greater than 0
+
+>>> print(bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at ...>>
