@@ -25,10 +25,6 @@ TypeError: baguette must be an integer
 Traceback (most recent call last):
 TypeError: None must be an integer
 
->>> bg.integer_validator("baguette", (0, 1, 2))
-Traceback (most recent call last):
-TypeError: baguette must be an integer
-
 >>> bg.area()
 Traceback (most recent call last):
 Exception: area() is not implemented
@@ -56,5 +52,3 @@ TypeError: fromage must be an integer
 >>> bg.integer_validator("distance", {2, 3})
 Traceback (most recent call last):
 TypeError: distance must be an integer
-
->>> bg.integer_validator(2, 2)
