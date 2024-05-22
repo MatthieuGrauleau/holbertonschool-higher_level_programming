@@ -53,6 +53,6 @@ TypeError: fromage must be an integer
 Traceback (most recent call last):
 TypeError: distance must be an integer
 
->>> bg.integer_validator("baptiste", {"cestmoi": "cestlui"})
+>>> bg.integer_validator("name")
 Traceback (most recent call last):
-TypeError: baptiste must be an integer
+TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
