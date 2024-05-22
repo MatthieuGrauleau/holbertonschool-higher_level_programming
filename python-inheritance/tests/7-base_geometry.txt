@@ -53,6 +53,6 @@ TypeError: fromage must be an integer
 Traceback (most recent call last):
 TypeError: distance must be an integer
 
->>> bg(None)
+>>> bg.integer_validator(["test", "fromage"], [2, 2])
 Traceback (most recent call last):
-TypeError: 'BaseGeometry' object is not callable
+TypeError: ['test', 'fromage'] must be an integer
