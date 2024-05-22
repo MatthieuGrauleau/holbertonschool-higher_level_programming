@@ -1,0 +1,9 @@
+doctest for 1-my_list.py
+============================
+This function prints the list, but sorted (ascending sort)
+
+>>> my_list = __import__('1-my_list).MyList
+
+Test for success
+================
+
