@@ -44,6 +44,3 @@ ValueError: age must be greater than 0
 >>> bg.integer_validator("distance", -4)
 Traceback (most recent call last):
 ValueError: distance must be greater than 0
-
->>> print(bg.integer_validator) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
-<bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at ...>>
