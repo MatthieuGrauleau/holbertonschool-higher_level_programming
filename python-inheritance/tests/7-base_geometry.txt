@@ -13,13 +13,21 @@ Test for success
 
 >>> bg.integer_validator("width", 89)
 
->>> bg.integer_validator("baptiste", (0, 1, 2))
+>>> bg.integer_validator("baguette", (0, 1, 2))
 Traceback (most recent call last):
-TypeError: baptiste must be an integer
+TypeError: baguette must be an integer
 
 ================
 Test for fail
 ================
+
+>>> bg.integer_validator(None, None)
+Traceback (most recent call last):
+TypeError: None must be an integer
+
+>>> bg.integer_validator("baguette", (0, 1, 2))
+Traceback (most recent call last):
+TypeError: baguette must be an integer
 
 >>> bg.area()
 Traceback (most recent call last):
