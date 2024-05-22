@@ -13,12 +13,14 @@ Test for success
 
 >>> bg.integer_validator("width", 89)
 
->>> bg.integer_validator("name", 4)
-
+>>> bg.integer_validator("baptiste", (0, 1, 2))
+Traceback (most recent call last):
+TypeError: baptiste must be an integer
 
 ================
 Test for fail
 ================
+
 >>> bg.area()
 Traceback (most recent call last):
 Exception: area() is not implemented
