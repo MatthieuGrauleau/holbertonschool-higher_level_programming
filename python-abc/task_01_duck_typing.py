@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Abstract Class"""
 
-
+import math
 from abc import ABC, abstractmethod
 
 
@@ -32,14 +32,14 @@ class Circle(Shape):
         Returns:
         float: The area of the circle.
         """
-        return (3.141592653589793 * self.radius**2)
+        return (math.pi * self.radius**2)
 
     def perimeter(self):
         """
         Calculate the perimeter of the circle.
         Returns:
         float: The perimeter of the circle."""
-        return (2 * 3.141592653589793 * self.radius)
+        return (2 * math.pi * self.radius)
 
 
 class Rectangle(Shape):
@@ -70,12 +70,12 @@ class Rectangle(Shape):
         return (2 * (self.width + self.height))
 
 
-def shape_info(shape):
+def shape_info(Shape):
     """
     Prints the area and perimeter of a given shape.
     Args:
     shape: An object representing a shape.
     Returns:
     None"""
-    print("Area: {}".format(shape.area()))
-    print("Perimeter: {}".format(shape.perimeter()))
+    print(f"Area: {Shape.area()}")
+    print(f"Perimeter: {Shape.perimeter()}")
