@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Reads and prints the contents of a file."""
+
+
 def read_file(filename=""):
     """
     Reads and prints the contents of a file.
