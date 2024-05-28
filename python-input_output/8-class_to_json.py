@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Converts a Python object to a dictionary representation."""
 
 
 def class_to_json(obj):
