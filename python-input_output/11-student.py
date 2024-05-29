@@ -34,10 +34,12 @@ class Student:
 
     def reload_from_json(self, json):
         """
-        Reloads the attributes of the Student instance from a JSON representation.
+        Reloads the attributes of the Student instance
+        from a JSON representation.
 
         Args:
-            json (dict): A dictionary containing the attributes of the Student instance.
+            json (dict): A dictionary containing the
+            attributes of the Student instance.
 
         Returns:
             None
