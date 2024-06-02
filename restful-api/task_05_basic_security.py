@@ -26,6 +26,17 @@ users = {
 
 @auth.verify_password
 def verify_password(username, password):
+    """
+    Verify the provided username and password.
+
+    Args:
+        username (str): The username provided by the user.
+        password (str): The password provided by the user.
+
+    Returns:
+        dict: The user dictionary if the username and password are correct.
+        None: If the username or password is incorrect.
+    """
     user = users.get(username)
     if user and check_password_hash(user['password'], password):
         return user
@@ -35,11 +46,24 @@ def verify_password(username, password):
 @app.route('/basic-protected')
 @auth.login_required
 def basic_protected():
+    """
+    A route protected by basic authentication.
+
+    Returns:
+        str: A message indicating that access is granted.
+    """
     return "Basic Auth: Access Granted"
 
 
 @app.route('/login', methods=['POST'])
 def login():
+    """
+    Handle user login and return a JWT token if credentials are valid.
+
+    Returns:
+        dict: A JSON response with the JWT token if credentials are valid.
+        dict: A JSON response with an error message if credentials are invalid.
+    """
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
@@ -56,12 +80,26 @@ def login():
 @app.route('/jwt-protected')
 @jwt_required()
 def jwt_protected():
+    """
+    A route protected by JWT authentication.
+
+    Returns:
+        str: A message indicating that access is granted.
+    """
     return "JWT Auth: Access Granted"
 
 
 @app.route('/admin-only')
 @jwt_required()
 def admin_only():
+    """
+    A route protected by JWT authentication and role-based access control.
+
+    Returns:
+        str: A message indicating that admin access is granted.
+        dict: A JSON response with an error message if
+        the user is not an admin.
+    """
     current_user = get_jwt_identity()
     if current_user['role'] != 'admin':
         return jsonify({"error": "Admin access required"}), 403
@@ -70,26 +108,71 @@ def admin_only():
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
+    """
+    Handle errors for missing or invalid JWT tokens.
+
+    Args:
+        err (str): The error message.
+
+    Returns:
+        dict: A JSON response with an error message and a 401 status code.
+    """
     return jsonify({"error": "Missing or invalid token"}), 401
 
 
 @jwt.invalid_token_loader
 def handle_invalid_token_error(err):
+    """
+    Handle errors for invalid JWT tokens.
+
+    Args:
+        err (str): The error message.
+
+    Returns:
+        dict: A JSON response with an error message and a 401 status code.
+    """
     return jsonify({"error": "Invalid token"}), 401
 
 
 @jwt.expired_token_loader
 def handle_expired_token_error(err):
+    """
+    Handle errors for expired JWT tokens.
+
+    Args:
+        err (str): The error message.
+
+    Returns:
+        dict: A JSON response with an error message and a 401 status code.
+    """
     return jsonify({"error": "Token has expired"}), 401
 
 
 @jwt.revoked_token_loader
 def handle_revoked_token_error(err):
+    """
+    Handle errors for revoked JWT tokens.
+
+    Args:
+        err (str): The error message.
+
+    Returns:
+        dict: A JSON response with an error message and a 401 status code.
+    """
     return jsonify({"error": "Token has been revoked"}), 401
 
 
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
+    """
+    Handle errors for JWT tokens that require a fresh token.
+
+    Args:
+        err (str): The error message.
+
+    Returns:
+        dict: A JSON response with an error message and a 401 status code.
+    """
     return jsonify({"error": "Fresh token required"}), 401
 
 
