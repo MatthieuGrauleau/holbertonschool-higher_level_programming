@@ -6,7 +6,7 @@ app = Flask(__name__)
 users = {}
 
 
-@app.route('/')
+@app.route("/")
 def home():
     """
     Handle the root URL route and provide a welcome message.
@@ -17,7 +17,7 @@ def home():
     return "Welcome to the Flask API!"
 
 
-@app.route('/data')
+@app.route("/data")
 def data():
     """
     Provide a list of all usernames stored in the system.
@@ -28,7 +28,7 @@ def data():
     return jsonify(list(users.keys()))
 
 
-@app.route('/status')
+@app.route("/status")
 def status():
     """
     Check the status of the API and return a simple message.
@@ -39,7 +39,7 @@ def status():
     return "OK"
 
 
-@app.route('/users/<username>')
+@app.route("/users/<username>")
 def get_user(username):
     """
     Fetch and return user details for a given username.
@@ -59,7 +59,7 @@ def get_user(username):
         return jsonify({"error": "User not found"}), 404
 
 
-@app.route('/add_user', methods=['POST'])
+@app.route("/add_user", methods=["POST"])
 def add_user():
     """
     Add a new user to the system with the provided details.
