@@ -3,7 +3,6 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# In-memory storage for users
 users = {
     "jane": {
         "username": "jane",
