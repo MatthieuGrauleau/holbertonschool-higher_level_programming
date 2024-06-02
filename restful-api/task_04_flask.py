@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# In-memory storage for users
 users = {
     "jane": {
         "username": "jane",
@@ -80,21 +81,15 @@ def add_user():
             If the username is missing or already exists,
             return an appropriate error message.
     """
-    data = request.get_json()
-    username = data.get("username")
+    user_data = request.get_json()
+    username = user_data.get("username")
     if not username:
-        return jsonify({"error": "username is required"}), 400
+        return jsonify({"error": "Username is required"}), 400
     if username in users:
         return jsonify({"error": "Username already exists"}), 409
 
-    new_user = {
-        "username": data["username"],
-        "name": data["name"],
-        "age": data["age"],
-        "city": data["city"]
-    }
-    users[username] = new_user
-    return jsonify({"message": "User added", "user": new_user}), 201
+    users[username] = user_data
+    return jsonify({"message": "User added", "user": user_data}), 201
 
 
 if __name__ == "__main__":
