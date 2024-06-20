@@ -1,35 +1,37 @@
 #!/usr/bin/python3
 import MySQLdb
 import sys
+"""
+This script lists all states from the database `hbtn_0e_0_usa`.
 
-if __name__ == "__main__":
+Arguments:
+    mysql_username: Your MySQL username.
+    mysql_password: Your MySQL password.
+    database_name: The name of the database to connect to.
+
+The script connects to a MySQL server running on localhost at port 3306
+and fetches all rows in the `states` table, sorted in ascending order by `id`.
+"""
+
+if __name__ == "_main_":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    try:
-        db = MySQLdb.connect(
-            host="localhost",
-            user=username,
-            passwd=password,
-            db=database,
-            port=3306
-        )
+    db = MySQLdb.connect(
+        host="localhost",
+        user=username,
+        passwd=password,
+        db=database,
+        port=3306
+    )
 
-        cursor = db.cursor()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY id")
+    rows = cursor.fetchall()
 
-        cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    for row in rows:
+        print(row)
 
-        rows = cursor.fetchall()
-
-        if rows:
-            for row in rows:
-                print(row)
-        else:
-            print("No data found.")
-
-        cursor.close()
-        db.close()
-
-    except MySQLdb.Error as e:
-        print(f"Error: {e}")
+    cursor.close()
+    db.close()
