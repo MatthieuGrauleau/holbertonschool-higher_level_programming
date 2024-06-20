@@ -2,25 +2,34 @@
 import MySQLdb
 import sys
 
-if __name__ == "_main_":
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
-    
-    db = MySQLdb.connect(
-        host="localhost",
-        user=username,
-        passwd=password,
-        db=database,
-        port=3306
-	)
-    
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id")
-    rows = cursor.fetchall()
-    
-    for row in rows:
-        print(row)
-    
-    cursor.close()
-    db.close()
+
+    try:
+        db = MySQLdb.connect(
+            host="localhost",
+            user=username,
+            passwd=password,
+            db=database,
+            port=3306
+        )
+
+        cursor = db.cursor()
+
+        cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+        rows = cursor.fetchall()
+
+        if rows:
+            for row in rows:
+                print(row)
+        else:
+            print("No data found.")
+
+        cursor.close()
+        db.close()
+
+    except MySQLdb.Error as e:
+        print(f"Error: {e}")
