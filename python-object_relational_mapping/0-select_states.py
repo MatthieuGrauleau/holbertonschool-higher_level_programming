@@ -11,27 +11,27 @@ The script connects to a MySQL server running on localhost at port 3306
 and fetches all rows in the `states` table, sorted in ascending order by `id`.
 """
 
-if __name__ == "_main_":
-    import MySQLdb
+if __name__ == "__main__":
     import sys
+    import MySQLdb
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
     db = MySQLdb.connect(
         host="localhost",
+        port=3306,
         user=username,
         passwd=password,
-        db=database,
-        port=3306
+        db=database
     )
 
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cursor.fetchall()
+    states = cursor.fetchall()
 
-    for row in rows:
-        print(row)
+    for state in states:
+        print(state)
 
     cursor.close()
     db.close()
