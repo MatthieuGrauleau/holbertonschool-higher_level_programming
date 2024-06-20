@@ -1,6 +1,4 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
 """
 This script lists all states from the database `hbtn_0e_0_usa`.
 
@@ -14,6 +12,8 @@ and fetches all rows in the `states` table, sorted in ascending order by `id`.
 """
 
 if __name__ == "_main_":
+    import MySQLdb
+    import sys
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
