@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all State objects from the database hbtn_0e_6_usa.
+This script lists the first State objects from the database hbtn_0e_6_usa.
 
 Arguments:
     mysql_username: Your MySQL username.
